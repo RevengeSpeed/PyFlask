@@ -26,7 +26,7 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 
 ## Instrucciones de Instalación
 
-Clona el repositorio: Si aún no tienes el repositorio en tu máquina local, clónalo con el siguiente comando: git clone https://github.com/tu_usuario/Flask-Final.git
+Clona el repositorio: Si aún no tienes el repositorio en tu máquina local, clónalo con el siguiente comando: git clone https://github.com/RevengeSpeed/PyFlask
 
 Accede al directorio del proyecto: Navega al directorio donde clonaste el repositorio: cd Flask-Final
 
