@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2 class="mb-4">Dashboard de Reparaciones</h2>
+<div class="mb-3">
+  <a href="{{ url_for('main.new_repair') }}" class="btn btn-success">Nueva Reparación</a>
+</div>
+<form method="POST" class="mb-4">
+  {{ form.hidden_tag() }}
+  <div class="row g-2 align-items-end">
+    <div class="col-auto">
+      {{ form.status.label(class="form-label") }}
+      {{ form.status(class="form-select") }}
+    </div>
+    <div class="col-auto">
+      {{ form.submit(class="btn btn-primary") }}
+    </div>
+  </div>
+</form>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Cliente</th>
+      <th>Estado</th>
+      <th>Fecha</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for repair in repairs %}
+    <tr>
+      <td>{{ repair.unique_code }}</td>
+      <td>{{ repair.client_name }}</td>
+      <td>{{ repair.status }}</td>
+      <td>{{ repair.date_created.strftime('%d/%m/%Y %H:%M') }}</td>
+      <td>
+        <a href="{{ url_for('main.edit_repair', repair_id=repair.id) }}" class="btn btn-sm btn-warning">Editar</a>
+        <form action="{{ url_for('main.delete_repair', repair_id=repair.id) }}" method="POST" style="display:inline;">
+          <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+        </form>
+        {% if repair.status != 'Terminado' %}
+        <a href="{{ url_for('main.complete_repair', repair_id=repair.id) }}" class="btn btn-sm btn-success">Completar</a>
+        {% endif %}
+        <a href="{{ url_for('main.nota_recepcion', repair_id=repair.id) }}" class="btn btn-sm btn-info">Nota</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Detalle de Reparación{% endblock %}
+{% block content %}
+<h2>Detalle de Reparación</h2>
+<ul class="list-group">
+  <li class="list-group-item"><strong>Código:</strong> {{ repair.unique_code }}</li>
+  <li class="list-group-item"><strong>Cliente:</strong> {{ repair.client_name }}</li>
+  <li class="list-group-item"><strong>Teléfono:</strong> {{ repair.phone }}</li>
+  <li class="list-group-item"><strong>Correo:</strong> {{ repair.email }}</li>
+  <li class="list-group-item"><strong>Dirección:</strong> {{ repair.address }}</li>
+  <li class="list-group-item"><strong>Marca:</strong> {{ repair.brand }}</li>
+  <li class="list-group-item"><strong>Modelo:</strong> {{ repair.model }}</li>
+  <li class="list-group-item"><strong>Número de Serie:</strong> {{ repair.serial_number }}</li>
+  <li class="list-group-item"><strong>Descripción:</strong> {{ repair.description }}</li>
+  <li class="list-group-item"><strong>Observaciones:</strong> {{ repair.observations }}</li>
+  <li class="list-group-item"><strong>Condiciones:</strong> {{ repair.conditions }}</li>
+  <li class="list-group-item"><strong>Estado:</strong> {{ repair.status }}</li>
+  <li class="list-group-item"><strong>Fecha de Registro:</strong> {{ repair.date_created.strftime('%d/%m/%Y %H:%M') }}</li>
+</ul>
+{% endblock %}

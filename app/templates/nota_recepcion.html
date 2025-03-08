@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nota de Recepción</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      @media print {
+        .no-print { display: none; }
+      }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+  <h2 class="text-center">Nota de Recepción</h2>
+  <hr>
+  <h4>Datos del Cliente</h4>
+  <p><strong>Nombre:</strong> {{ repair.client_name }}</p>
+  <p><strong>Teléfono:</strong> {{ repair.phone }}</p>
+  <p><strong>Correo:</strong> {{ repair.email }}</p>
+  <p><strong>Dirección:</strong> {{ repair.address }}</p>
+  <hr>
+  <h4>Datos del Electrodoméstico</h4>
+  <p><strong>Marca:</strong> {{ repair.brand }}</p>
+  <p><strong>Modelo:</strong> {{ repair.model }}</p>
+  <p><strong>Número de Serie:</strong> {{ repair.serial_number }}</p>
+  <hr>
+  <h4>Descripción y Observaciones</h4>
+  <p><strong>Descripción:</strong> {{ repair.description }}</p>
+  <p><strong>Observaciones:</strong> {{ repair.observations }}</p>
+  <hr>
+  <h4>Condiciones de Recepción</h4>
+  <p>{{ repair.conditions }}</p>
+  <hr>
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <p>______________________________</p>
+      <p>Firma del Cliente</p>
+    </div>
+    <div class="col-md-6 text-center">
+      <p>______________________________</p>
+      <p>Firma del Técnico</p>
+    </div>
+  </div>
+  <div class="text-center no-print mt-4">
+    <button class="btn btn-primary" onclick="window.print()">Imprimir</button>
+  </div>
+</div>
+</body>
+</html>

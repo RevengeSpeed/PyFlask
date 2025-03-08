@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Consulta de Reparación{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2 class="mb-4 text-center">Consulta el estado de tu reparación</h2>
+    <form method="POST" action="{{ url_for('main.consulta') }}">
+      {{ form.hidden_tag() }}
+      <div class="mb-3">
+        {{ form.unique_code.label(class="form-label") }}
+        {{ form.unique_code(class="form-control") }}
+      </div>
+      <div class="text-center">
+        {{ form.submit(class="btn btn-primary") }}
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
